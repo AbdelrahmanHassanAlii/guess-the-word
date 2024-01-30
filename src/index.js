@@ -10,3 +10,7 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+export const gameName = `Guess The Word`;
+
+document.title = gameName;
