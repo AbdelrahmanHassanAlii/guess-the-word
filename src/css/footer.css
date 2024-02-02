@@ -1,0 +1,17 @@
+.footer {
+  background-color: var(--no-color);
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  .proto {
+    text-decoration: none;
+    color: var(--in-place-color);
+    cursor: pointer;
+  }
+}
