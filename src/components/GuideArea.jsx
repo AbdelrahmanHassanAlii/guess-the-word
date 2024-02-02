@@ -1,8 +1,10 @@
 import React from "react";
+import "../css/guideArea.css";
 
 export default function GuideArea() {
   return (
     <div className="key-colors">
+      <h1 className="guide-header">Guide For Play</h1>
       <div className="key-color">
         <div className="key in-place"></div>
         <div className="key-text">Letter Is Correct And In Place</div>

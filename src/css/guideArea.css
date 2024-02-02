@@ -1,0 +1,46 @@
+.key-colors {
+  .guide-header {
+    text-align: center;
+    margin: 20px;
+  }
+  .key-color {
+    display: flex;
+    gap: 20px;
+    justify-content: start;
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    .key {
+      width: 30px;
+      height: 30px;
+      background-color: aqua;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+      border-top-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      &.in-place {
+        background-color: var(--in-place-color);
+      }
+      &.not-in-place {
+        background-color: var(--not-in-place-color);
+      }
+      &.no {
+        background-color: var(--no-color);
+      }
+    }
+    .key-text {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}

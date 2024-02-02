@@ -4,6 +4,12 @@
   padding: 0;
 }
 
+:root {
+  --in-place-color: #11b882;
+  --not-in-place-color: #f79c10;
+  --no-color: #202938;
+}
+
 body {
   background-color: #eee;
 }
