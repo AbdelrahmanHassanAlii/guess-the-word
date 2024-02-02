@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div className="footer">
       {`${gameName} made with 💚 by`}{" "}
-      <a href="#" className="proto">
+      <a href="/#" className="proto">
         Abdelrahman
       </a>
     </div>
