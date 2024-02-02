@@ -1,9 +1,12 @@
 import React from "react";
 import { numberOfTries, numberOfLettersPerTry } from "../index";
 
+// function to generate inputs based on the nuber of tries and letters per try
 const renderInputs = (x, y) => {
+  //generate list of tries
   const inputs = [];
   for (let i = 1; i <= x; i++) {
+    //generate a list of letters for each try
     const innerInputs = [];
     for (let j = 1; j <= y; j++) {
       innerInputs.push(
@@ -27,6 +30,8 @@ const renderInputs = (x, y) => {
   }
   return inputs;
 };
+
+//function to focus on the frist input on load
 window.onload = () => {
   let fristInput = document.querySelector(`.guess-1-letter-1`);
   fristInput.focus();
