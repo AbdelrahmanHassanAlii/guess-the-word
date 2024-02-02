@@ -5,10 +5,10 @@ export default function GameArea() {
     <div>
       <div className="inputs"></div>
       <div className="buttons">
-        <div className="check">Check Word</div>
-        <div className="hint">
+        <button className="check">Check Word</button>
+        <button className="hint">
           <span></span> Hint
-        </div>
+        </button>
       </div>
       <div className="message"></div>
     </div>
