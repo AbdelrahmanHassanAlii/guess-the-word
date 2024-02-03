@@ -1,6 +1,7 @@
 import React from "react";
 import { numberOfTries, numberOfLettersPerTry } from "../index";
-import '../css/gameArea.css'
+import "../css/gameArea.css";
+import { convertToUpperCase } from "../js/gameArea";
 
 // function to generate inputs based on the nuber of tries and letters per try
 const renderInputs = (x, y) => {
@@ -20,12 +21,16 @@ const renderInputs = (x, y) => {
             key={j}
             id={`try-${i}-letter-${j}`}
             className={`input guess-${i}-letter-${j}`}
+            onChange={convertToUpperCase}
           />
         </span>
       );
     }
     inputs.push(
-      <div key={i} className={`try try-${i} ${i !== 1 ? "disabled-inputs" : ""}`}>
+      <div
+        key={i}
+        className={`try try-${i} ${i !== 1 ? "disabled-inputs" : ""}`}
+      >
         <span className={`try-header`}>Try {i}</span>
         {innerInputs}
       </div>
@@ -34,10 +39,18 @@ const renderInputs = (x, y) => {
   return inputs;
 };
 
+let handleDisabledInput = () => {
+  let disabledInputs = document.querySelectorAll(`.disabled-inputs input`);
+  disabledInputs.forEach((input) => {
+    input.disabled = true;
+  });
+};
+
 //function to focus on the frist input on load
 window.onload = () => {
   let fristInput = document.querySelector(`.guess-1-letter-1`);
   fristInput.focus();
+  handleDisabledInput();
 };
 
 export default function GameArea() {
