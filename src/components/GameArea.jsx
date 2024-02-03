@@ -1,5 +1,6 @@
 import React from "react";
 import { numberOfTries, numberOfLettersPerTry } from "../index";
+import '../css/gameArea.css'
 
 // function to generate inputs based on the nuber of tries and letters per try
 const renderInputs = (x, y) => {
@@ -14,16 +15,18 @@ const renderInputs = (x, y) => {
           {/* `for accessability */}
           <label htmlFor={`try-${i}-letter-${j}`}> </label>
           <input
+            type="text"
+            maxLength={1}
             key={j}
             id={`try-${i}-letter-${j}`}
-            className={`guess-${i}-letter-${j}`}
+            className={`input guess-${i}-letter-${j}`}
           />
         </span>
       );
     }
     inputs.push(
-      <div key={i} className={`try-${i} ${i !== 1 ? "disabled-inputs" : ""}`}>
-        <span>Try {i}</span>
+      <div key={i} className={`try try-${i} ${i !== 1 ? "disabled-inputs" : ""}`}>
+        <span className={`try-header`}>Try {i}</span>
         {innerInputs}
       </div>
     );
