@@ -1,7 +1,8 @@
 import React from "react";
 import { numberOfTries, numberOfLettersPerTry } from "../index";
 import "../css/gameArea.css";
-import { convertToUpperCase } from "../js/gameArea";
+import { convertToUpperCase, move } from "../js/gameArea";
+import "../js/gameArea";
 
 // function to generate inputs based on the nuber of tries and letters per try
 const renderInputs = (x, y) => {
@@ -50,7 +51,8 @@ let handleDisabledInput = () => {
 window.onload = () => {
   let fristInput = document.querySelector(`.guess-1-letter-1`);
   fristInput.focus();
-  handleDisabledInput();
+  // handleDisabledInput();
+  move();
 };
 
 export default function GameArea() {
