@@ -46,32 +46,45 @@ let getRandomWord = () => {
 let actualWord = getRandomWord();
 console.log(actualWord);
 
-// function to handle the logic of the game
 export const check = (x) => {
-  let success = false;
-  for (let i = 1; i <= x; i++) {
-    let input = document.querySelector(`.guess-${tryNumber}-letter-${i}`);
-    let predictLetter = input.value.toLowerCase();
-    if (predictLetter === actualWord[i - 1]) {
-      input.classList.add("yes-in-place");
-      success = true;
-    } else if (actualWord.includes(predictLetter) && predictLetter !== "") {
-      input.classList.add("not-in-place");
-      success = false;
-    } else if (!actualWord.includes(predictLetter)) {
-      input.classList.add("no");
-      success = false;
+  let checkButton = document.querySelector(".check");
+  let checkButtonText = checkButton.innerText;
+  console.log(checkButtonText);
+  if (checkButtonText === `Check Word`) {
+    let success = false;
+    for (let i = 1; i <= x; i++) {
+      let input = document.querySelector(`.guess-${tryNumber}-letter-${i}`);
+      let predictLetter = input.value.toLowerCase();
+      if (predictLetter === actualWord[i - 1]) {
+        input.classList.add("yes-in-place");
+        success = true;
+      } else if (actualWord.includes(predictLetter) && predictLetter !== "") {
+        input.classList.add("not-in-place");
+        success = false;
+      } else if (!actualWord.includes(predictLetter)) {
+        input.classList.add("no");
+        success = false;
+      }
     }
-  }
-  // handle Win or Loss
-  if (success) {
-    //get all dives inputs
-    let allInputDiv = document.querySelectorAll(".inputs > div");
-    //make them disabled f he win
-    allInputDiv.forEach((input) => {
-      input.classList.add(`disabled-inputs`);
-    });
-  } else {
-    console.log(`fail`);
+    // handle Win or Loss
+    if (success) {
+      //get all dives inputs
+      let allInputDiv = document.querySelectorAll(".inputs > div");
+      //make them disabled f he win
+      allInputDiv.forEach((input) => {
+        input.classList.add(`disabled-inputs`);
+      });
+      //get the message Area
+      let messageArea = document.querySelector(`.message`);
+      //add success text to message area
+      messageArea.innerHTML = `<p>Congratulation The Word Is <span>${actualWord.toUpperCase()}</span></p>`;
+
+      //change the text of the button to reload
+      checkButton.innerHTML = `Play Again!`;
+    } else {
+      console.log(`fail`);
+    }
+  } else if (checkButtonText === `Play Again!`) {
+    window.location.reload();
   }
 };
