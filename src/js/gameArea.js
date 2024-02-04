@@ -67,10 +67,10 @@ export const check = (x) => {
       }
     }
     // handle Win or Loss
-    if (success) {
+    if (success === true) {
       //get all dives inputs
       let allInputDiv = document.querySelectorAll(".inputs > div");
-      //make them disabled f he win
+      //make them disabled if he win
       allInputDiv.forEach((input) => {
         input.classList.add(`disabled-inputs`);
       });
@@ -82,7 +82,21 @@ export const check = (x) => {
       //change the text of the button to reload
       checkButton.innerHTML = `Play Again!`;
     } else {
-      console.log(`fail`);
+      //get the current row
+      let currentRow = document.querySelector(`.try-${tryNumber}`);
+      //diable the current row 
+      currentRow.classList.add(`disabled-inputs`);
+      //increase the nuber of tries
+      tryNumber += 1;
+      //get the next row
+      let nextRow = document.querySelector(`.try-${tryNumber}`);
+      //active it
+      nextRow.classList.remove(`disabled-inputs`);
+      // get all inputs in the row
+      let inputInNextRow = nextRow.querySelectorAll(`input`);
+      inputInNextRow.forEach((input) => {
+        input.disabled = false;
+      });
     }
   } else if (checkButtonText === `Play Again!`) {
     window.location.reload();
