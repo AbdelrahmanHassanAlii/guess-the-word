@@ -48,12 +48,13 @@ console.log(actualWord);
 
 // function to handle the logic of the game
 export const check = (x) => {
-  let success = true;
+  let success = false;
   for (let i = 1; i <= x; i++) {
     let input = document.querySelector(`.guess-${tryNumber}-letter-${i}`);
     let predictLetter = input.value.toLowerCase();
     if (predictLetter === actualWord[i - 1]) {
       input.classList.add("yes-in-place");
+      success = true;
     } else if (actualWord.includes(predictLetter) && predictLetter !== "") {
       input.classList.add("not-in-place");
       success = false;
@@ -64,9 +65,13 @@ export const check = (x) => {
   }
   // handle Win or Loss
   if (success) {
-    console.log(`success`)
-  }
-  else {
+    //get all dives inputs
+    let allInputDiv = document.querySelectorAll(".inputs > div");
+    //make them disabled f he win
+    allInputDiv.forEach((input) => {
+      input.classList.add(`disabled-inputs`);
+    });
+  } else {
     console.log(`fail`);
   }
 };

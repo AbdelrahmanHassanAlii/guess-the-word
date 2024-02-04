@@ -57,3 +57,29 @@
     pointer-events: none;
   }
 }
+
+.buttons {
+  button {
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    display: block;
+    margin: auto;
+  }
+  .check {
+    background-color: red;
+    width: 60%;
+    margin-bottom: 15px;
+  }
+  .hint {
+    background-color: var(--in-place-color);
+    width: 30%;
+  }
+}
