@@ -1,3 +1,4 @@
+import sixLetterWords from "../js/list";
 //function convert dynamically to uppercase
 export const convertToUpperCase = (e) => {
   e.target.value = e.target.value.toUpperCase();
@@ -33,4 +34,14 @@ export const handleArrows = () => {
     });
   });
 };
+
+//number of current try
+let tryNumber = 1;
+
+//function to get random word from the list 
+let getRandomWord = () => {
+  const randomIndex = Math.floor(Math.random() * sixLetterWords.length);
+  return sixLetterWords[randomIndex];
+};
+let word = getRandomWord();
 
