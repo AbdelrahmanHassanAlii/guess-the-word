@@ -79,9 +79,19 @@
     width: 60%;
     margin-bottom: 15px;
   }
+  @media (min-width: 768px) {
+    .check {
+      width: 100%;
+    }
+  }
   .hint {
     background-color: var(--in-place-color);
     width: 30%;
+  }
+  @media (min-width: 768px) {
+    .hint {
+      width: 60%;
+    }
   }
 }
 
