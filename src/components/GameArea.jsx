@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { numberOfTries, numberOfLettersPerTry } from "../index";
 import "../css/gameArea.css";
-import { convertToUpperCase, move, handleArrows, check } from "../js/gameArea";
+import {
+  convertToUpperCase,
+  move,
+  handleArrows,
+  check,
+  fun,
+} from "../js/gameArea";
 import "../js/gameArea";
 
 // function to generate inputs based on the nuber of tries and letters per try
@@ -57,6 +63,19 @@ window.onload = () => {
 };
 
 export default function GameArea() {
+  //handle click on hintButton
+  const [hints, setHints] = useState(2);
+  let hint = () => {
+    if (hints > 0) {
+      setHints(hints - 1);
+      fun();
+    }
+    if (hints === 0) {
+      document.querySelector(`button.hint`).textContent = `No Hints More`;
+      document.querySelector(`button.hint`).style.opacity = 0.5;
+    }
+  };
+
   return (
     <div>
       <div className="inputs">
@@ -71,8 +90,8 @@ export default function GameArea() {
         >
           Check Word 🤔
         </button>
-        <button className="hint">
-          <span></span> Hint 🥸
+        <button className="hint" onClick={hint}>
+          <span>{hints}</span> Hint 🥸
         </button>
       </div>
       <div className="message"></div>

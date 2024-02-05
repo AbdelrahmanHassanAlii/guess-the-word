@@ -1,3 +1,4 @@
+import { random } from "node-forge";
 import sixLetterWords from "../js/list";
 //function convert dynamically to uppercase
 export const convertToUpperCase = (e) => {
@@ -202,10 +203,33 @@ export const check = (x) => {
         let messageArea = document.querySelector(`.message`);
         messageArea.innerHTML = `<p>You Lost! The Word Is <span>${actualWord.toUpperCase()}</span></p>`;
         checkButton.innerHTML = `Play Again!`;
+        document.querySelector(`button.hint`).disabled = true;
+        document.querySelector(`button.hint`).style.opacity = 0.5;
       }
     }
   } else if (checkButtonText === `Play Again!`) {
     // Reload the page if the button text is 'Play Again!'
     window.location.reload();
+  }
+};
+
+export const fun = () => {
+  let enabledInputs = document.querySelectorAll(".inputs input:not(:disabled)");
+
+  // Use Array.from to convert NodeList to an array and then filter
+  let emptyEnabledInputs = Array.from(enabledInputs).filter((input) => {
+    // Return true for elements that have an empty value
+    return input.value.trim() === "";
+  });
+
+  if (emptyEnabledInputs.length > 0) {
+    let randomEmptyIndex = Math.floor(
+      Math.random() * emptyEnabledInputs.length
+    );
+    let randomInput = emptyEnabledInputs[randomEmptyIndex];
+    let indexToFill = Array.from(enabledInputs).indexOf(randomInput);
+    if (indexToFill !== -1) {
+      randomInput.value = actualWord[indexToFill].toUpperCase();
+    }
   }
 };
