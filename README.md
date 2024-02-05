@@ -1,6 +1,6 @@
 # Frontend Mentor - ToDo App
 
-![Guess-Game](./images/guess-game)
+![Guess-Game](./images/guess-game.jpg)
 
 ## Welcome!👋
 
