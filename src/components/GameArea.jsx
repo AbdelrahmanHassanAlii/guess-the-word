@@ -69,10 +69,10 @@ export default function GameArea() {
             check(numberOfLettersPerTry);
           }}
         >
-          Check Word
+          Check Word 🤔
         </button>
         <button className="hint">
-          <span></span> Hint
+          <span></span> Hint 🥸
         </button>
       </div>
       <div className="message"></div>
