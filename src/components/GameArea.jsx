@@ -6,7 +6,7 @@ import {
   move,
   handleArrows,
   check,
-  fun,
+  hint,
 } from "../js/gameArea";
 import "../js/gameArea";
 
@@ -65,10 +65,10 @@ window.onload = () => {
 export default function GameArea() {
   //handle click on hintButton
   const [hints, setHints] = useState(2);
-  let hint = () => {
+  let hintFunction = () => {
     if (hints > 0) {
       setHints(hints - 1);
-      fun();
+      hint();
     }
     if (hints === 0) {
       document.querySelector(`button.hint`).textContent = `No Hints More`;
@@ -90,7 +90,7 @@ export default function GameArea() {
         >
           Check Word 🤔
         </button>
-        <button className="hint" onClick={hint}>
+        <button className="hint" onClick={hintFunction}>
           <span>{hints}</span> Hint 🥸
         </button>
       </div>

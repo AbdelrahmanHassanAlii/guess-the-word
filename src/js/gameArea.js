@@ -15,6 +15,7 @@ export const move = () => {
   });
 };
 
+//handle arrows in the inputs
 export const handleArrows = () => {
   let inputs = document.querySelectorAll(`input`);
   inputs.forEach((input) => {
@@ -91,7 +92,7 @@ export const check = (x) => {
 
       // Get the message area and display the success message
       let messageArea = document.querySelector(`.message`);
-      messageArea.innerHTML = `<p>Congratulations 🥰! The Word Is <span>${actualWord.toUpperCase()}</span></p>`;
+      messageArea.innerHTML = `<p>Congratulations 🥳! The Word Is <span>${actualWord.toUpperCase()}</span></p>`;
       document.querySelector(`button.hint`).disabled = true;
       document.querySelector(`button.hint`).style.opacity = 0.5;
 
@@ -138,7 +139,7 @@ export const check = (x) => {
   }
 };
 
-export const fun = () => {
+export const hint = () => {
   let enabledInputs = document.querySelectorAll(".inputs input:not(:disabled)");
 
   // Use Array.from to convert NodeList to an array and then filter
