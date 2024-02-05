@@ -151,7 +151,7 @@ export const check = (x) => {
         // Check if the guessed letter is in the word but in the wrong position
         input.classList.add("not-in-place");
         success = false;
-      } else if (!actualWord.includes(predictLetter)) {
+      } else if (!actualWord.includes(predictLetter || predictLetter === "")) {
         // Check if the guessed letter is not in the word
         input.classList.add("no");
         success = false;
@@ -198,6 +198,12 @@ export const check = (x) => {
         // Focus on the first input in the next row
         let firstInput = nextRow.querySelector(`input`);
         firstInput.focus();
+      }
+      else{
+        // Get the message area and display the success message
+      let messageArea = document.querySelector(`.message`);
+      messageArea.innerHTML = `<p>You Lost! The Word Is <span>${actualWord.toUpperCase()}</span></p>`;
+      checkButton.innerHTML = `Play Again!`;
       }
     }
   } else if (checkButtonText === `Play Again!`) {
