@@ -1,4 +1,3 @@
-import { random } from "node-forge";
 import sixLetterWords from "../js/list";
 //function convert dynamically to uppercase
 export const convertToUpperCase = (e) => {
@@ -169,6 +168,8 @@ export const check = (x) => {
       // Get the message area and display the success message
       let messageArea = document.querySelector(`.message`);
       messageArea.innerHTML = `<p>Congratulations 🥰! The Word Is <span>${actualWord.toUpperCase()}</span></p>`;
+      document.querySelector(`button.hint`).disabled = true;
+      document.querySelector(`button.hint`).style.opacity = 0.5;
 
       // Change the text of the button to 'Play Again!'
       checkButton.innerHTML = `Play Again!`;
@@ -233,3 +234,25 @@ export const fun = () => {
     }
   }
 };
+
+//function to handle backspace and enter keys
+let handleKeyDown = (event) => {
+  if (event.key === "Backspace") {
+    let enabledInputs = document.querySelectorAll(
+      ".inputs input:not(:disabled)"
+    );
+    let curretIndex = Array.from(enabledInputs).indexOf(document.activeElement);
+    console.log(curretIndex);
+    if (curretIndex) {
+      let curretInput = enabledInputs[curretIndex];
+      let preInput = enabledInputs[curretIndex - 1];
+      curretInput.value = "";
+      preInput.value = "";
+      preInput.focus();
+    }
+  }
+  if (event.key === "Enter") {
+    check(6);
+  }
+};
+document.addEventListener("keydown", handleKeyDown);
