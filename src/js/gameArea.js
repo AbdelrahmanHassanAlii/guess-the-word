@@ -53,7 +53,7 @@ console.log(actualWord);
 let success = true;
 
 // Function to check the user's guess
-export const check = (x) => {
+export const check = (x, y) => {
   // Get the check button and its text
   let checkButton = document.querySelector(".check");
   let checkButtonText = checkButton.innerText;
@@ -100,7 +100,7 @@ export const check = (x) => {
       checkButton.innerHTML = `Play Again!`;
     } else {
       // Check if there are more tries left
-      if (tryNumber < x) {
+      if (tryNumber < y) {
         // Disable the current row
         let currentRow = document.querySelector(`.try-${tryNumber}`);
         currentRow.classList.add(`disabled-inputs`);
@@ -167,7 +167,6 @@ let handleKeyDown = (event) => {
       ".inputs input:not(:disabled)"
     );
     let curretIndex = Array.from(enabledInputs).indexOf(document.activeElement);
-    console.log(curretIndex);
     if (curretIndex) {
       let curretInput = enabledInputs[curretIndex];
       let preInput = enabledInputs[curretIndex - 1];
@@ -177,7 +176,7 @@ let handleKeyDown = (event) => {
     }
   }
   if (event.key === "Enter") {
-    check(6);
+    check(6,6);
   }
 };
 document.addEventListener("keydown", handleKeyDown);

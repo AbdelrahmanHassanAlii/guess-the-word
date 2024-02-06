@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { numberOfTries, numberOfLettersPerTry } from "../index";
+// import { numberOfTries, numberOfLettersPerTry } from "../index";
 import "../css/gameArea.css";
 import {
+  render,
   convertToUpperCase,
   move,
   handleArrows,
@@ -9,6 +10,10 @@ import {
   hint,
 } from "../js/gameArea";
 import "../js/gameArea";
+
+//game-options
+const numberOfTries = 6;
+const numberOfLettersPerTry = 6;
 
 // function to generate inputs based on the nuber of tries and letters per try
 const renderInputs = (x, y) => {
@@ -85,7 +90,7 @@ export default function GameArea() {
         <button
           className="check"
           onClick={() => {
-            check(numberOfLettersPerTry);
+            check(numberOfLettersPerTry, numberOfTries);
           }}
         >
           Check Word 🤔

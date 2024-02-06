@@ -15,5 +15,5 @@ export const gameName = `Guess The Word`;
 document.title = gameName;
 
 //game-options
-export const numberOfTries = 6;
-export const numberOfLettersPerTry = 6;
+// export const numberOfTries = 6;
+// export const numberOfLettersPerTry = 6;
