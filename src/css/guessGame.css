@@ -1,3 +1,7 @@
+.guess-game{
+  min-height: 120vh;
+}
+
 @media (min-width: 600px) {
   .guess-game {
     margin-top: 50px;
