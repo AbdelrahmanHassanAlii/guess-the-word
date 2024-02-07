@@ -2,7 +2,6 @@ import React, { useState } from "react";
 // import { numberOfTries, numberOfLettersPerTry } from "../index";
 import "../css/gameArea.css";
 import {
-  render,
   convertToUpperCase,
   move,
   handleArrows,
