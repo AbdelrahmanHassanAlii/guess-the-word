@@ -1,4 +1,7 @@
 import sixLetterWords from "../js/list";
+
+import * as lists from './lists';
+
 //function convert dynamically to uppercase
 export const convertToUpperCase = (e) => {
   e.target.value = e.target.value.toUpperCase();
@@ -39,15 +42,41 @@ export const handleArrows = () => {
 // Number of current try
 let tryNumber = 1;
 
-// Function to get a random word from the list
-let getRandomWord = () => {
-  const randomIndex = Math.floor(Math.random() * sixLetterWords.length);
-  return sixLetterWords[randomIndex];
-};
+// Function to get a random array name and return the corresponding array
+export const getRandomArray = () => {
+  // Get all the array names from the imported lists
+  const arrayNames = Object.keys(lists);
+  // Select a random array name
+  const randomArrayName = arrayNames[Math.floor(Math.random() * arrayNames.length)];
+  return { name: randomArrayName, array: lists[randomArrayName] };
+}
+
+export function getRandomWord() {
+  // Get a random array
+  const { name, array } = getRandomArray();
+  
+  // Select a random word from the array
+  const randomWord = array[Math.floor(Math.random() * array.length)];
+  
+  // Return the array name and the random word
+  return { 
+    category: name, actualWord: randomWord };
+}
 
 // Get a random word for the game
-let actualWord = getRandomWord();
+let {category, actualWord} = getRandomWord();
 console.log(actualWord);
+
+localStorage.setItem('category', category);
+
+export const setCategoryFunction = () => {
+  let categoryElement = document.querySelector(".category");
+  categoryElement.textContent = category;
+}
+window.onload = () => {
+  setCategoryFunction();
+}
+
 
 // Flag to check if the guess was successful
 let success = true;

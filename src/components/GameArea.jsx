@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-// import { numberOfTries, numberOfLettersPerTry } from "../index";
+import React, { useEffect, useState } from "react";
 import "../css/gameArea.css";
 import {
   convertToUpperCase,
@@ -7,6 +6,7 @@ import {
   handleArrows,
   check,
   hint,
+  getRandomWord,
 } from "../js/gameArea";
 import "../js/gameArea";
 
@@ -67,6 +67,13 @@ window.onload = () => {
 };
 
 export default function GameArea() {
+
+  const [ category, setCategory ] = useState('');
+
+  useEffect(() => {
+    setCategory(localStorage.getItem('category'));
+  }, []);
+
   //handle click on hintButton
   const [hints, setHints] = useState(2);
   let hintFunction = () => {
@@ -82,6 +89,7 @@ export default function GameArea() {
 
   return (
     <div>
+      <h1 className="title">The Word is From <span className="category"> {category}</span></h1>
       <div className="inputs">
         {renderInputs(numberOfTries, numberOfLettersPerTry)}
       </div>

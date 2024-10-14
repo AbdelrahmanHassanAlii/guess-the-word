@@ -43,3 +43,16 @@
     }
   }
 }
+
+.title{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px;
+  span{
+    color: var(--in-place-color);
+    text-transform: capitalize;
+  }
+}
+
+
